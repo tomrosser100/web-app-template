@@ -40,7 +40,7 @@ const backConfig = {
 }
 
 const common = {
-  mode: mode,
+  mode,
   module: {
     rules: [
       {

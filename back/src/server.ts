@@ -1,16 +1,23 @@
 import express from 'express'
-//import sslRedirect from 'heroku-ssl-redirect'
+import sslRedirect from 'heroku-ssl-redirect'
+
+const options = {
+  distPath: '/front/dist',
+  htmlFilename: 'index.html',
+  localIP: '192.168.1.25',
+  usingSSL: false
+}
 
 const app = express()
 
-//app.use(sslRedirect())
+if (options.usingSSL) app.use(sslRedirect())
 
-app.use(express.static(process.cwd() + '/front/dist'))
+app.use(express.static(process.cwd() + options.distPath))
 
 app.get('/**', function (req, res) {
-  res.sendFile(process.cwd() + '/front/dist/index.html')
+  res.sendFile(process.cwd() + options.distPath + '/' + options.htmlFilename)
 })
 
-console.log(`http://192.168.1.25:${process.env.PORT}/`)
+console.log(`http://${options.localIP}:${process.env.PORT}/`)
 
 app.listen(process.env.PORT)
