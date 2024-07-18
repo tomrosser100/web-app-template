@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
-import { Await, useLoaderData } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { Await, defer, useLoaderData } from "react-router-dom";
 
-export default function LazyPage() {
+export function Component() {
   const data = useLoaderData() as { slowData: { message: string } };
 
   return (
@@ -16,3 +16,16 @@ export default function LazyPage() {
     </Suspense>
   );
 }
+
+export async function loader() {
+    console.log("loader start");
+
+    const slowDataPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("loader finish");
+        resolve({ message: `Hi I'm data` })
+      }, 2000);
+    });
+
+    return defer({ slowData: slowDataPromise });
+  }
