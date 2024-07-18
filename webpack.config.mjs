@@ -5,7 +5,7 @@ import { merge } from 'webpack-merge'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const mode = 'production'
+const mode = 'development'
 
 const frontConfig = {
   target: "web",
@@ -42,8 +42,16 @@ const backConfig = {
 const common = {
   mode,
   devtool: 'source-map',
+  devServer: {
+    static: './front/dist',
+    hot: true,
+  },
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
       {
         test: /\.(?:ts|tsx)$/,
         exclude: /node_modules/,
