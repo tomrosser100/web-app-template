@@ -22,7 +22,7 @@ const frontConfig = {
     },
     inject: "body",
     template: "./front/src/index.html",
-    //favicon: "./front/src/favicon.png"
+    favicon: "./front/src/favicon.png"
   })]
 }
 
