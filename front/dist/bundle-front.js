@@ -5025,8 +5025,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
     padding: 0px;
     box-sizing: border-box;
     border: solid black 0.5px;
-    background-color: blue;
-}`, "",{"version":3,"sources":["webpack://./front/src/styling/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;IACtB,yBAAyB;IACzB,sBAAsB;AAC1B","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n    border: solid black 0.5px;\r\n    background-color: blue;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./front/src/styling/styles.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;IACtB,yBAAyB;AAC7B","sourcesContent":["* {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    box-sizing: border-box;\r\n    border: solid black 0.5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

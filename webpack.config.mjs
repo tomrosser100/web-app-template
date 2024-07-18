@@ -42,10 +42,6 @@ const backConfig = {
 const common = {
   mode,
   devtool: 'source-map',
-  devServer: {
-    static: './front/dist',
-    hot: true,
-  },
   module: {
     rules: [
       {
