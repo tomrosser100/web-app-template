@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 
 export function Component() {

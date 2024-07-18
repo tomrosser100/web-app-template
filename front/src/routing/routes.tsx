@@ -7,7 +7,9 @@ export default [
     path: "/",
     element: (
       <div>
-        Hello world, Root here<Link to="lazy-test">Link</Link>
+        <h1>Hello world</h1>
+        <h3>Root here</h3>
+        <Link to="lazy-test">Link</Link>
         <Outlet />
       </div>
     ),
@@ -16,7 +18,7 @@ export default [
       {
         path: "lazy-test",
         async lazy() {
-          const { Component, loader } = await import("./LazyPage");
+          const { Component, loader } = await import("./Test");
           return {
             Component,
             loader,
