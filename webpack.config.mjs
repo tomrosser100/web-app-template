@@ -41,6 +41,7 @@ const backConfig = {
 
 const common = {
   mode,
+  devtool: 'source-map',
   module: {
     rules: [
       {

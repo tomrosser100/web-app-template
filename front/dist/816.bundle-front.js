@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkapp_bootstrap=self.webpackChunkapp_bootstrap||[]).push([[816],{816:(e,t,a)=>{a.r(t),a.d(t,{default:()=>r});var l=a(540),n=a(767);function r(){const e=(0,n.LG)();return l.createElement("div",null,l.createElement("p",null,"Lazy test page here loader data"),l.createElement(l.Suspense,{fallback:l.createElement("p",null,"Loading...")},l.createElement(n.jD,{resolve:e.slowData},(e=>l.createElement("p",null,e.message)))))}}}]);
+//# sourceMappingURL=816.bundle-front.js.map
