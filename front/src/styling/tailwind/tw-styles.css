@@ -615,16 +615,3 @@ video {
 .underline {
   text-decoration-line: underline;
 }
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  border: solid black 0.5px;
-  background-color: rgb(0, 0, 255, .1);
-}
-
-body {
-  max-width: 760px;
-  margin: auto;
-}

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "start": "tailwindcss -i ./front/src/styling/tailwind/template.css -o ./front/src/styling/tailwind/tw-styles.css && webpack && heroku local",
+    "tw": "tailwindcss -i ./front/src/styling/tailwind/tw-imports.css -o ./front/src/styling/tailwind/tw-styles.css",
+    "serve": "\"npm run tw\" && webpack serve",
+    "heroku": "\"npm run tw\" && webpack && heroku local",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -36,6 +37,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }

@@ -1,6 +1,24 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./back/src/server.ts":
+/*!****************************!*\
+  !*** ./back/src/server.ts ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! heroku-ssl-redirect */ \"heroku-ssl-redirect\");\n/* harmony import */ var heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst options = {\n  distPath: '/front/dist',\n  htmlFilename: 'index.html',\n  localIP: '192.168.1.25',\n  usingSSL: false\n};\nconst app = express__WEBPACK_IMPORTED_MODULE_0___default()();\nif (options.usingSSL) app.use(heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1___default()());\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default()[\"static\"](process.cwd() + options.distPath));\napp.get('/**', function (req, res) {\n  res.sendFile(process.cwd() + options.distPath + '/' + options.htmlFilename);\n});\nconsole.log(`http://${options.localIP}:${process.env.PORT}/`);\napp.listen(process.env.PORT);\n\n//# sourceURL=webpack://app-bootstrap/./back/src/server.ts?");
+
+/***/ }),
 
 /***/ "express":
 /*!**************************!*\
@@ -90,31 +108,11 @@ module.exports = require("heroku-ssl-redirect");
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-/*!****************************!*\
-  !*** ./back/src/server.ts ***!
-  \****************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ "express");
-/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! heroku-ssl-redirect */ "heroku-ssl-redirect");
-/* harmony import */ var heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1__);
-
-
-const options = {
-  distPath: '/front/dist',
-  htmlFilename: 'index.html',
-  localIP: '192.168.1.25',
-  usingSSL: false
-};
-const app = express__WEBPACK_IMPORTED_MODULE_0___default()();
-if (options.usingSSL) app.use(heroku_ssl_redirect__WEBPACK_IMPORTED_MODULE_1___default()());
-app.use(express__WEBPACK_IMPORTED_MODULE_0___default()["static"](process.cwd() + options.distPath));
-app.get('/**', function (req, res) {
-  res.sendFile(process.cwd() + options.distPath + '/' + options.htmlFilename);
-});
-console.log(`http://${options.localIP}:${process.env.PORT}/`);
-app.listen(process.env.PORT);
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./back/src/server.ts");
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=bundle-back.js.map

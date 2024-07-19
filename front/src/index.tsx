@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./routing/routes";
 import './styling/tailwind/tw-styles.css'
+import './styling/styles.css'
 
 const router = createBrowserRouter(routes as any);
 
