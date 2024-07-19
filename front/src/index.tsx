@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./routing/routes";
-import './styling/styles.css'
+import './styling/tailwind/tw-styles.css'
 
 const router = createBrowserRouter(routes as any);
 
