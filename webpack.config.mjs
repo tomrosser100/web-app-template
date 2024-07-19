@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const mode = "development";
 
 const frontConfig = {
-  devtool: "inline-source-map",
+  devtool: "source-map",
   devServer: {
     static: {
       directory: "./front/dist",
