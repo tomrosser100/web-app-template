@@ -4,7 +4,7 @@ export const DebugCSS = styled.div`
   * {
     box-sizing: border-box;
     border: solid black 1px;
-    background-color: rgb(0, 0, 255, 0.2);
+    background-color: rgb(0, 0, 255, 0.1);
   }
 `;
 
@@ -12,7 +12,7 @@ export const DraftGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 4fr;
   grid-template-rows: 1fr;
-  gap: 5px;
+  gap: 10px;
   place-items: stretch stretch;
 `;
 
