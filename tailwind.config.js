@@ -2,8 +2,6 @@
 
 module.exports = {
   content: ["./front/src/**/*.{html,ts,tsx}"],
-  theme: {
-    extend: {},
-  },
+  theme: {},
   plugins: [],
-}
+};

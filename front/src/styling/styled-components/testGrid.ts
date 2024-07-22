@@ -4,7 +4,7 @@ export const DebugCSS = styled.div`
   * {
     box-sizing: border-box;
     border: solid black 1px;
-    background-color: rgb(0, 0, 255, 0.1);
+    background-color: rgb(0, 0, 255, 0.2);
   }
 `;
 
