@@ -1,3 +1,5 @@
+import type { Msg } from "./types";
+
 export default interface SocketEvents {
-  userPrompt: (userInput: string, callback: (response: string) => void) => void;
+  userPrompt: (userInput: Msg, callback: (response: Msg) => void) => void;
 }

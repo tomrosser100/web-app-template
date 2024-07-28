@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var expr
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((io, socket) => {\n  console.log(\"a user connected\", socket.id);\n  socket.on(\"disconnect\", () => {\n    console.log(socket.id, \"disconnected\");\n  });\n  socket.on('userPrompt', (userInput, callback) => {\n    console.log('received', userInput);\n    callback('server response');\n  });\n});\n\n//# sourceURL=webpack://web-app-template/./back/src/socketHandlers.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((io, socket) => {\n  console.log(\"a user connected\", socket.id);\n  socket.on(\"disconnect\", () => {\n    console.log(socket.id, \"disconnected\");\n  });\n  socket.on('userPrompt', async (userInput, callback) => {\n    console.log('received', userInput);\n    const response = await new Promise(resolve => {\n      setTimeout(() => {\n        resolve('');\n      }, 3000);\n    });\n    callback({\n      type: 'gpt',\n      msg: 'hi this is a chatgpt response'\n    });\n  });\n});\n\n//# sourceURL=webpack://web-app-template/./back/src/socketHandlers.ts?");
 
 /***/ }),
 

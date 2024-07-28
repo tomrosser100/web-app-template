@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Form } from "react-router-dom";
 
-export const DebugCSS = styled.div`
+export const DebugCSS = styled.div<{ $debugStyles: boolean }>`
   * {
-    box-sizing: border-box;
-    border: solid black 1px;
-    background-color: rgb(0, 0, 255, 0.2);
+    ${(props) =>
+      props.$debugStyles &&
+      `background-color: rgb(0, 0, 255, 0.2);box-sizing: border-box;
+    border: solid black 1px;`}
   }
 `;
 

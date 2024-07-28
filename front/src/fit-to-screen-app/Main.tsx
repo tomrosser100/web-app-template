@@ -10,18 +10,22 @@ import {
   GPT,
   User,
 } from "./styledComponents";
-import testChat, { type Msg } from "./testChat";
+import testChat from "./testChat";
+import { eventEmitter } from "./eventEmitter";
+import { actionComplete, actionSubmit } from "./effectHooks";
+import type { Msg } from "../../../shared/types";
+import { debugStyles } from "./config";
 
 const ScrollingChat = ({ chat }: { chat: Msg[] }) => {
   return (
     <ScrollingChatContainer>
       {chat.map((entry, i) => {
-        if (entry.type === 'user') {
+        if (entry.type === "user") {
           return <User key={i}>{entry.msg}</User>;
-        } else if (entry.type === 'gpt') {
+        } else if (entry.type === "gpt") {
           return <GPT key={i}>{entry.msg}</GPT>;
         } else {
-          throw new Error()
+          throw new Error();
         }
       })}
     </ScrollingChatContainer>
@@ -30,9 +34,16 @@ const ScrollingChat = ({ chat }: { chat: Msg[] }) => {
 
 const InputSubmit = () => {
   return (
-    <InputSubmitContainer method='POST'>
-      <input className="p-3" type="textbox" name="userInput" placeholder="type here"></input>
+    <InputSubmitContainer method="POST">
+      <input
+        id="input"
+        className="p-3"
+        type="textbox"
+        name="userInput"
+        placeholder="type here"
+      ></input>
       <button
+        id="submit"
         className="cursor-pointer hover:bg-blue-100 transition-colors duration-100"
         type="submit"
       >
@@ -45,8 +56,20 @@ const InputSubmit = () => {
 export default () => {
   const [chat, setChat] = useState(testChat);
 
+  useEffect(() => {
+    const handleActionSubmit = (msg: Msg) => actionSubmit(msg, setChat);
+    const handleActionComplete = (msg: Msg) => actionComplete(msg, setChat);
+
+    eventEmitter.on("actionSubmit", handleActionSubmit);
+    eventEmitter.on("actionComplete", handleActionComplete);
+    return () => {
+      eventEmitter.off("actionSubmit", handleActionSubmit);
+      eventEmitter.off("actionComplete", handleActionComplete);
+    };
+  });
+
   return (
-    <DebugCSS>
+    <DebugCSS $debugStyles={debugStyles}>
       <Body>
         <HeaderGrid></HeaderGrid>
         <Chat>
