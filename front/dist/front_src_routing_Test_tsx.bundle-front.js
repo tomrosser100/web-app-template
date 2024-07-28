@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkapp_bootstrap"] = self["webpackChunkapp_bootstrap"] || []).push([["front_src_routing_Test_tsx"],{
+(self["webpackChunkweb_app_template"] = self["webpackChunkweb_app_template"] || []).push([["front_src_routing_Test_tsx"],{
 
 /***/ "./front/src/routing/Test.tsx":
 /*!************************************!*\

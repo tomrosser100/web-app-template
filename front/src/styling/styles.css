@@ -5,14 +5,7 @@
 
 body {
     max-width: 760px;
-    min-width: 420px;
+    min-width: 320px;
+    min-height: 480px;
     margin: auto;
-}
-
-#app {
-    height: 100vh;
-    padding: 10px;
-    border-left: black 2px solid;
-    border-right: black 2px solid;
-    box-sizing: border-box;
 }
