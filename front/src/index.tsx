@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./routing/routes";
 import './styling/tailwind/tw-styles.css'
 import './styling/styles.css'
+import './socket'
 
 const router = createBrowserRouter(routes as any);
 

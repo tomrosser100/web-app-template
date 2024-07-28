@@ -59,3 +59,17 @@ export const InputSubmitContainer = styled(Form)`
   display: grid;
   grid-template-columns: 5fr 1fr;
 `;
+
+export const GPT = styled.div`
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 5px;
+  white-space: wrap;
+  background-color: rgba(0, 0, 255, 0.1);
+`;
+
+export const User = styled.div`
+  text-indent: 1em;
+  padding: 5px;
+  white-space: wrap;
+`;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollingChatContainer,
   InputSubmitContainer,
@@ -7,20 +7,31 @@ import {
   HeaderGrid,
   Chat,
   InputBar,
+  GPT,
+  User,
 } from "./styledComponents";
+import testChat, { type Msg } from "./testChat";
 
-const ScrollingChat = () => {
+const ScrollingChat = ({ chat }: { chat: Msg[] }) => {
   return (
     <ScrollingChatContainer>
-      <div>Example chat msg</div>
+      {chat.map((entry, i) => {
+        if (entry.type === 'user') {
+          return <User key={i}>{entry.msg}</User>;
+        } else if (entry.type === 'gpt') {
+          return <GPT key={i}>{entry.msg}</GPT>;
+        } else {
+          throw new Error()
+        }
+      })}
     </ScrollingChatContainer>
   );
 };
 
 const InputSubmit = () => {
   return (
-    <InputSubmitContainer>
-      <input className="p-3" type="textbox" placeholder="type here"></input>
+    <InputSubmitContainer method='POST'>
+      <input className="p-3" type="textbox" name="userInput" placeholder="type here"></input>
       <button
         className="cursor-pointer hover:bg-blue-100 transition-colors duration-100"
         type="submit"
@@ -32,12 +43,14 @@ const InputSubmit = () => {
 };
 
 export default () => {
+  const [chat, setChat] = useState(testChat);
+
   return (
     <DebugCSS>
       <Body>
         <HeaderGrid></HeaderGrid>
         <Chat>
-          <ScrollingChat></ScrollingChat>
+          <ScrollingChat chat={chat}></ScrollingChat>
         </Chat>
         <InputBar>
           <InputSubmit></InputSubmit>

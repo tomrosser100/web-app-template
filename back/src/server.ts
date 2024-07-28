@@ -1,5 +1,8 @@
 import express from 'express'
 import sslRedirect from 'heroku-ssl-redirect'
+import { createServer } from "node:http";
+import { Server } from "socket.io";
+import registerSocketHandlers from './socketHandlers'
 
 const options = {
   distPath: '/front/dist',
@@ -9,6 +12,8 @@ const options = {
 }
 
 const app = express()
+const server = createServer(app);
+const io = new Server(server);
 
 if (options.usingSSL) app.use(sslRedirect())
 
@@ -18,6 +23,10 @@ app.get('/**', function (req, res) {
   res.sendFile(process.cwd() + options.distPath + '/' + options.htmlFilename)
 })
 
-console.log(`http://${options.localIP}:${process.env.PORT}/`)
+io.on('connection', (socket) => {
+  registerSocketHandlers(io, socket)
+})
 
-app.listen(process.env.PORT)
+server.listen(process.env.PORT, () => {
+  console.log(`http://localhost:${process.env.PORT}/`);
+});
