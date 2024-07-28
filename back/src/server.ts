@@ -7,8 +7,8 @@ import registerSocketHandlers from './socketHandlers'
 const options = {
   distPath: '/front/dist',
   htmlFilename: 'index.html',
-  localIP: '192.168.1.25',
-  usingSSL: false
+  usingSSL: false,
+  port: process.env.PORT || 8080
 }
 
 const app = express()
@@ -16,7 +16,6 @@ const server = createServer(app);
 const io = new Server(server);
 
 if (options.usingSSL) app.use(sslRedirect())
-
 app.use(express.static(process.cwd() + options.distPath))
 
 app.get('/**', function (req, res) {
@@ -27,6 +26,6 @@ io.on('connection', (socket) => {
   registerSocketHandlers(io, socket)
 })
 
-server.listen(process.env.PORT, () => {
-  console.log(`http://localhost:${process.env.PORT}/`);
+server.listen(options.port, () => {
+  console.log(`http://localhost:${options.port}`);
 });

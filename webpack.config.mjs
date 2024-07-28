@@ -14,8 +14,11 @@ const frontConfig = {
       directory: "./front/dist",
     },
     hot: true,
-    compress: true,
     port: 5006,
+    proxy: [{
+      context: ['/socket.io'],
+      target: 'http://localhost:8080'
+    }]
   },
   target: "web",
   entry: "./front/src/index.tsx",

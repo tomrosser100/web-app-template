@@ -11,7 +11,7 @@ export const DebugCSS = styled.div<{ $debugStyles: boolean }>`
 `;
 
 export const Body = styled.div`
-  padding: 10px;
+  padding: 50px;
   height: 99dvh;
   margin: auto;
   display: flex;
