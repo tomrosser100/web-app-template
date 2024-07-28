@@ -1,5 +1,5 @@
 import type { Server, Socket } from "socket.io";
-import type SocketEvents from "../../shared/SocketEvents";
+import type SocketEvents from "../../shared/socketEvents";
 
 export default (io: Server, socket: Socket<SocketEvents>) => {
   console.log("a user connected", socket.id);
