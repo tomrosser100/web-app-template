@@ -14,6 +14,7 @@ const frontConfig = {
       directory: "./front/dist",
     },
     hot: true,
+    compress: true,
     port: 5006,
     proxy: [{
       context: ['/socket.io'],

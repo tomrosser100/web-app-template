@@ -15,6 +15,7 @@ import { eventEmitter } from "./eventEmitter";
 import { actionComplete, actionSubmit } from "./effectHooks";
 import type { Msg } from "../../../shared/types";
 import { debugStyles } from "./config";
+import config from "../../../config";
 
 const ScrollingChat = ({ chat }: { chat: Msg[] }) => {
   return (
@@ -69,7 +70,7 @@ export default () => {
   });
 
   return (
-    <DebugCSS $debugStyles={debugStyles}>
+    <DebugCSS $debugStyles={config.front.debugStyles}>
       <Body>
         <HeaderGrid></HeaderGrid>
         <Chat>
